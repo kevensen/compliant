@@ -1,0 +1,48 @@
+version: "2"
+settings:
+
+  conductor:
+    base: centos:7
+    roles_path: 
+    - ../../../git
+  project_name: tests
+
+services:
+  centos_7_0:
+    from: "centos:7.0.1406"
+    roles:
+      - compliant
+  # centos_7_1:
+  #   from: "centos:7.1.1503"
+  #   roles:
+  #     - compliant
+  # centos_7_2:
+  #   from: "centos:7.2.1511"
+  #   roles:
+  #     - compliant
+  # centos_7_3:
+  #   from: "centos:7.3.1611"
+  #   roles:
+  #     - compliant
+  # centos_7_4:
+  #   from: "centos:7.4.1708"
+  #   roles:
+  #     - compliant
+  
+  # Add your containers here, specifying the base image you want to build from.
+  # To use this example, uncomment it and delete the curly braces after services key.
+  # You may need to run `docker pull ubuntu:trusty` for this to work.
+
+  # web:
+  #   from: "centos:7"
+  #   ports:
+  #     - "80:80"
+  #   command: ["/usr/bin/dumb-init", "/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
+  #   dev_overrides:
+  #     environment:
+  #       - "DEBUG=1"
+registries: {}
+  # Add optional registries used for deployment. For example:
+  #  google:
+  #    url: https://gcr.io
+  #    namespace: my-cool-project-xxxxxx   

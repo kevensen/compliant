@@ -1,2 +1,41 @@
--localhost
+# inventory
+[local]
+localhost ansible_connection=local ansible_python_interpreter=/Users/k6n/virtualenv/docker-py/bin/python
+
+[containers:children]
+redhat
+
+[containers:vars]
+ansible_connection=docker
+
+[redhat:children]
+centos
+fedora
+
+[centos]
+centos5.11 image="centos:5.11"
+centos6.6 image="centos:6.6"
+centos6.7 image="centos:6.7"
+centos6.8 image="centos:6.8"
+centos6.9 image="centos:6.9"
+centos7.0 image="centos:7.0.1406"
+centos7.1 image="centos:7.1.1503"
+centos7.2 image="centos:7.2.1511"
+centos7.3 image="centos:7.3.1611"
+
+
+[centos7]
+centos7.4 image="centos:7.4.1708" ansible_connection=docker
+
+
+[fedora]
+fedora20 image="fedora:20"
+fedora21 image="fedora:21"
+fedora22 image="fedora:22"
+fedora23 image="fedora:23"
+fedora24 image="fedora:24"
+fedora25 image="fedora:25"
+fedora26 image="fedora:26"
+fedora27 image="fedora:27"
+fedora28 image="fedora:28"
 

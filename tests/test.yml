@@ -1,6 +1,13 @@
 ---
-
-- hosts: localhost
-  remote_user: root
+# test.yml
+- name: Bring up docker containers for docker connection inventory iface
+  hosts: local
   roles:
-    - 800-53
+    - role: chrismeyersfsu.provision_docker
+      provision_docker_inventory_group: "{{ groups['centos7'] }}"
+      provision_docker_use_docker_connection: true
+
+
+- hosts: centos7
+  roles: 
+  - role: compliant
